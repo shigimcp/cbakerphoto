@@ -1,0 +1,56 @@
+<!-- <h1>COMPONENT: home</h1> -->
+
+<!-- 
+<div style="padding: 13px;">
+    <mat-spinner *ngIf="products.length === 0"></mat-spinner>
+
+    <mat-card *ngFor="let product of products" style="margin-top:10px;">
+        <mat-card-header>
+            <mat-card-title>{{ product.name }}</mat-card-title>
+            <mat-card-subtitle>{{ product.price }} $/ {{ product.quantity }}
+            </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+            <p>{{ product.description }}</p>
+            <img style="height:100%; width: 100%;" src="{{ product.imageUrl }}" />
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button> Buy product</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+ -->
+
+
+<div style="padding: 13px;">
+
+    <!-- <h1>{{ boom }}</h1> -->
+
+    <mat-spinner *ngIf="boom.length === 0"></mat-spinner>
+
+    <mat-card *ngFor="let boomImg of boom" style="margin-top:10px;">
+<!-- 
+        <mat-card-header>
+            <mat-card-title>{{ boomImg.FileName }}</mat-card-title>
+            <mat-card-subtitle>{{ boomImg.Directory }}</mat-card-subtitle>
+        </mat-card-header>
+ -->
+        <mat-card-content>
+            <!-- <p>{{ boomImg.MIMEType }}</p> -->
+            <img src="{{ boomImg.Directory }}{{ boomImg.FileName }}" draggable="false" />
+        </mat-card-content>
+<!-- 
+        <mat-card-actions>
+            <button mat-button> Buy This!</button>
+        </mat-card-actions>
+ -->
+    </mat-card>
+
+</div>
+
+<div>
+    <button (click)="firstPage()" mat-button> First</button>
+    <button (click)="previousPage()" mat-button> Previous</button>
+    <button (click)="nextPage()" mat-button> Next</button>
+    <button (click)="lastPage()" mat-button> Last</button>
+</div>

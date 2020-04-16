@@ -1,0 +1,24 @@
+{
+  "name": "cbakerphoto",
+  "version": "1.0.0",
+  "description": "Chuck Baker Photography",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shigimcp/cbakerphoto.git"
+  },
+  "author": "Chuck Baker / Shigeru McPherson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shigimcp/cbakerphoto/issues"
+  },
+  "homepage": "https://github.com/shigimcp/cbakerphoto#readme",
+  "dependencies": {
+    "@angular/cli": "^9.1.1",
+    "npm": "^6.14.4",
+    "rxjs": "^6.5.5"
+  }
+}
