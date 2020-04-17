@@ -19,7 +19,10 @@ import { ParseCSVComponent } from './parse-csv/parse-csv.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
+import { ClassicComponent } from './classic/classic.component';
 
+import { MasonryComponent } from './masonry/masonry.component';
+import { NgxMasonryModule } from 'ngx-masonry';
 
 @NgModule({
 
@@ -28,7 +31,9 @@ import { AboutComponent } from './about/about.component';
         NavComponent,
         ParseCSVComponent,
         HomeComponent,
-        AboutComponent
+        AboutComponent,
+        MasonryComponent,
+        ClassicComponent
     ],
 
     imports: [
@@ -42,7 +47,8 @@ import { AboutComponent } from './about/about.component';
         MatButtonModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
-        HttpClientModule
+        HttpClientModule,
+        NgxMasonryModule
     ],
 
     providers: [],

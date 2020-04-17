@@ -1,0 +1,17 @@
+.fixed-header {
+    width: 100% !important;
+    height: 70px;
+
+    // padding: 10px 0 0 0;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+
+    .navLogo {
+        margin: 0 50px;
+        position: relative;
+        top: 40px;
+    }
+}
