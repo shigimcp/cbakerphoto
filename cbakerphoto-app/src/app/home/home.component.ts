@@ -1,3 +1,6 @@
+// REF: https://www.techiediaries.com/angular/angular-9-8-tutorial-by-example-rest-crud-apis-http-get-requests-with-httpclient/
+// NOTE: still need to complete Steps 14-15
+
 import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { DataService } from '../data.service';
@@ -15,7 +18,8 @@ import { HttpResponse } from '@angular/common/http';
 
 export class HomeComponent implements OnInit, OnDestroy {
 
-    // products: any = [];
+    title: 'JSON (API)';
+
     boom: any = [];
 
     destroy$: Subject<boolean> = new Subject<boolean>();
@@ -26,25 +30,16 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
 
-        // // this.dataService.sendGetRequest().subscribe((data: any[]) => {
+        // this.dataService.sendGetRequest().subscribe((data: any[]) => {
         // this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: any[]) => {
+        this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((data: HttpResponse<any>) => {
 
-        //     console.log('HOME/ngOnInit: data = ');
-        //     console.log(data);
+            console.log('HOME/ngOnInit: data = ');
+            console.log(data);
 
-        //     // this.products = data;
-        //     this.boom = data;
-        // });
-
-
-        this.dataService.sendGetRequest().pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-
-            console.log('HOME/ngOnInit: res = ');
-            console.log(res);
-
-            this.boom = res.body;
+            // this.boom = data;
+            this.boom = data.body;
         });
-
     }
 
 
@@ -63,42 +58,44 @@ export class HomeComponent implements OnInit, OnDestroy {
         this.boom = [];
 
         // tslint:disable-next-line: max-line-length
-        this.dataService.sendGetRequestToUrl(this.dataService.first).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-            console.log(res);
-            this.boom = res.body;
+        this.dataService.sendGetRequestToUrl(this.dataService.first).pipe(takeUntil(this.destroy$)).subscribe((data: HttpResponse<any>) => {
+            console.log(data);
+            this.boom = data.body;
         });
     }
+
     public previousPage() {
 
         if (this.dataService.prev !== undefined && this.dataService.prev !== '') {
             this.boom = [];
 
             // tslint:disable-next-line: max-line-length
-            this.dataService.sendGetRequestToUrl(this.dataService.prev).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-                console.log(res);
-                this.boom = res.body;
+            this.dataService.sendGetRequestToUrl(this.dataService.prev).pipe(takeUntil(this.destroy$)).subscribe((data: HttpResponse<any>) => {
+                console.log(data);
+                this.boom = data.body;
             });
         }
-
     }
+
     public nextPage() {
         if (this.dataService.next !== undefined && this.dataService.next !== '') {
             this.boom = [];
 
             // tslint:disable-next-line: max-line-length
-            this.dataService.sendGetRequestToUrl(this.dataService.next).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-                console.log(res);
-                this.boom = res.body;
+            this.dataService.sendGetRequestToUrl(this.dataService.next).pipe(takeUntil(this.destroy$)).subscribe((data: HttpResponse<any>) => {
+                console.log(data);
+                this.boom = data.body;
             });
         }
     }
+
     public lastPage() {
         this.boom = [];
 
         // tslint:disable-next-line: max-line-length
-        this.dataService.sendGetRequestToUrl(this.dataService.last).pipe(takeUntil(this.destroy$)).subscribe((res: HttpResponse<any>) => {
-            console.log(res);
-            this.boom = res.body;
+        this.dataService.sendGetRequestToUrl(this.dataService.last).pipe(takeUntil(this.destroy$)).subscribe((data: HttpResponse<any>) => {
+            console.log(data);
+            this.boom = data.body;
         });
     }
 }

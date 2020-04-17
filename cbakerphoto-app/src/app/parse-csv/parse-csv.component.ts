@@ -28,9 +28,6 @@ export class ParseCSVComponent implements OnInit {
     }
 
 
-
-
-
     uploadListener($event: any): void {
 
         // const text = [];

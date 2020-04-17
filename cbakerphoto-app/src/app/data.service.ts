@@ -15,23 +15,10 @@ import { retry, catchError, tap } from 'rxjs/operators';
 
 export class DataService {
 
-    // private REST_API_SERVER = 'http://localhost:3000';
-
-    // *** REMEMBER: in package.json THIS! ==>>   "server": "json-server --watch ./server/database.json",
-    // private REST_API_SERVER = 'http://localhost:3000/products';
-
     // *** REMEMBER: in package.json THIS! ==>>   "server" "json-server --watch ./server/data/boom.json",
     private REST_API_SERVER = 'http://localhost:3000/boom';
-
-    // public first: string = "";
-    // public prev: string = "";
-    // public next: string = "";
-    // public last: string = "";
-
-    // public first = '';
-    // public prev = '';
-    // public next = '';
-    // public last = '';
+    // private REST_API_SERVER = './assets/data/json/classic.json';
+    // private REST_API_SERVER = 'http://shigimcp.com/Xstage/chuckbaker/assets/data/json/classic.json';
 
     public first: string;
     public prev: string;
@@ -76,14 +63,13 @@ export class DataService {
 
         // tslint:disable-next-line: max-line-length
         return this.httpClient.get(this.REST_API_SERVER, { params: new HttpParams({ fromString: '_page=1&_limit=8' }), observe: 'response' })
-            .pipe(retry(3), catchError(this.handleError), tap(res => {
+            .pipe(retry(3), catchError(this.handleError), tap(data => {
 
-                console.log('res.headers.get(Link) = ' + res.headers.get('Link'));
+                console.log('data.headers.get(Link) = ' + data.headers.get('Link'));
 
-                this.parseLinkHeader(res.headers.get('Link'));
+                this.parseLinkHeader(data.headers.get('Link'));
             }
         ));
-
     }
 
 
@@ -112,20 +98,15 @@ export class DataService {
         this.prev = links['prev'];
         // tslint:disable-next-line: no-string-literal
         this.next = links['next'];
-
-        // this.first = links.first;
-        // this.last = links.last;
-        // this.prev = links.prev;
-        // this.next = links.next;
     }
 
 
     public sendGetRequestToUrl(url: string) {
-        return this.httpClient.get(url, { observe: 'response' }).pipe(retry(3), catchError(this.handleError), tap(res => {
+        return this.httpClient.get(url, { observe: 'response' }).pipe(retry(3), catchError(this.handleError), tap(data => {
 
-            console.log('res.headers.get(Link) = ' + res.headers.get('Link'));
+            console.log('data.headers.get(Link) = ' + data.headers.get('Link'));
 
-            this.parseLinkHeader(res.headers.get('Link'));
+            this.parseLinkHeader(data.headers.get('Link'));
         }));
     }
 }
