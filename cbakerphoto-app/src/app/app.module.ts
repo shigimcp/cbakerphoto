@@ -19,10 +19,19 @@ import { ParseCSVComponent } from './parse-csv/parse-csv.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-import { ClassicComponent } from './classic/classic.component';
 
-import { MasonryComponent } from './masonry/masonry.component';
 import { NgxMasonryModule } from 'ngx-masonry';
+// import { MasonryComponent } from './masonry/masonry.component';
+
+import { BoomComponent } from './boom/boom.component';
+import { ClassicComponent } from './classic/classic.component';
+import { FitnessComponent } from './fitness/fitness.component';
+import { LifeComponent } from './life/life.component';
+import { MenComponent } from './men/men.component';
+import { PortraitsComponent } from './portraits/portraits.component';
+import { StillComponent } from './still/still.component';
+import { WomenComponent } from './women/women.component';
+
 
 @NgModule({
 
@@ -32,8 +41,15 @@ import { NgxMasonryModule } from 'ngx-masonry';
         ParseCSVComponent,
         HomeComponent,
         AboutComponent,
-        MasonryComponent,
-        ClassicComponent
+        // MasonryComponent,
+        BoomComponent,
+        ClassicComponent,
+        FitnessComponent,
+        LifeComponent,
+        MenComponent,
+        PortraitsComponent,
+        StillComponent,
+        WomenComponent,
     ],
 
     imports: [

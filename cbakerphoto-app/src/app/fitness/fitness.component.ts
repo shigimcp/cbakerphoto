@@ -3,21 +3,21 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
-import * as Classic from '../../assets/data/json/classic.json';
+import * as Fitness from '../../assets/data/json/fitness.json';
 
 
 @Component({
-    selector: 'app-classic',
-    templateUrl: './classic.component.html',
-    styleUrls: ['./classic.component.scss']
+    selector: 'app-fitness',
+    templateUrl: './fitness.component.html',
+    styleUrls: ['./fitness.component.scss']
 })
 
 
-export class ClassicComponent implements OnInit {
+export class FitnessComponent implements OnInit {
 
-    title: 'Classic';
+    title: 'Fitness';
 
-    classicItems: any[] = (Classic as any).classic;
+    fitnessItems: any[] = (Fitness as any).fitness;
 
     @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent;
 
@@ -31,20 +31,20 @@ export class ClassicComponent implements OnInit {
     constructor() { }
 
     ngOnInit(): void {
-        // console.log(Classic);
-        // console.log('Classic.classic[1].FileName = ' + Classic.classic[1].FileName);
-        // console.log('this.classicItems = ' + this.classicItems);
+        // console.log(Fitness);
+        // console.log('Fitness.fitness[1].FileName = ' + Fitness.fitness[1].FileName);
+        // console.log('this.fitnessItems = ' + this.fitnessItems);
 
-        this.masonryImages = this.classicItems.slice(0, this.limit);
+        this.masonryImages = this.fitnessItems.slice(0, this.limit);
     }
 
     showMoreImages() {
         this.limit += 9;
-        this.masonryImages = this.classicItems.slice(0, this.limit);
+        this.masonryImages = this.fitnessItems.slice(0, this.limit);
     }
 
     insertImage() {
-        this.masonryImages.splice(0, 0, this.classicItems[0]);
+        this.masonryImages.splice(0, 0, this.fitnessItems[0]);
         this.masonry.reloadItems();
         this.masonry.layout();
     }

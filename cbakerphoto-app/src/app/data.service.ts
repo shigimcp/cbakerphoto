@@ -35,10 +35,10 @@ export class DataService {
 
         if (error.error instanceof ErrorEvent) {
             // Client-side errors
-            errorMessage = `Error: ${error.error.message}`;
+            errorMessage = 'Error: ${error.error.message}';
         } else {
             // Server-side errors
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+            errorMessage = 'Error Code: ${error.status}\nMessage: ${error.message}';
         }
 
         window.alert(errorMessage);

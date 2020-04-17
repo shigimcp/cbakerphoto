@@ -1,4 +1,4 @@
-<!-- <h1>COMPONENT: classic</h1> -->
+<!-- <h1>COMPONENT: fitness</h1> -->
 
 <div class="masonryGrid">
     <ngx-masonry [options]="masonryOptions">
@@ -9,12 +9,12 @@
 
     <div class="masonryNav">
         <div>
-            <!-- <h2>{{ classicItems.length }}</h2> -->
+            <!-- <h2>{{ fitnessItems.length }}</h2> -->
 
-            <button *ngIf="limit < classicItems.length" (click)="showMoreImages()">Show More Images</button>
-            <!-- <button *ngIf="limit < classicItems.length" (click)="insertImage()">Insert Image</button> -->
+            <button *ngIf="limit < fitnessItems.length" (click)="showMoreImages()">Show More Images</button>
+            <!-- <button *ngIf="limit < fitnessItems.length" (click)="insertImage()">Insert Image</button> -->
             <!-- <button *ngIf="masonryImages" (click)="removeImage()">Remove Image</button> -->
-            <h2 *ngIf="limit >= classicItems.length">No More Images</h2>
+            <h2 *ngIf="limit >= fitnessItems.length">No More Images</h2>
         </div>
     </div>
 </div>
