@@ -1,25 +1,17 @@
 <!-- <h1>COMPONENT: about</h1> -->
 
-<p style="padding: 13px;">
-    An Angular 9 example application that demonstrates how to use read local json files<br>
-    (REF: <a href="https://www.techiediaries.com/import-local-json-files-in-typescript/">https://www.techiediaries.com/import-local-json-files-in-typescript/</a>)
-</p>
+<div class="about">
+    <p>Chuck Baker began his lifetime career in photography at an early age - sweeping floors in a camera shop at the age of twelve and going on assignment for The Dallas Times Herald before his sixteenth birthday. After spending three years shooting still lifes for Neiman Marcus in Texas, Chuck moved to New York City to open a studio.</p>
+    <p>Capturing people in the midst of every day activities while somehow portraying these moments as much deeper and graphic experiences, Chuck Baker’s style was quickly discovered by the legendary Carrie Donovan. She hired him to create four entire new sections of The Men’s Fashion of The Times , followed by hundreds of pages of women’s fashion features, which then resulted in an impressive list of clients.</p>
+    <p>Editorial Clients: The New York Times, Vogue, Italian Harpers Baazar , Cosmopolitan, Playboy, Seventeen, Elle, Elle Décor, Marie Claire, House Beautiful, House and Garden, New York Magazine, Martha Stewart Living and Hampton’s Country</p>
+    <p>Advertising Clients: Neiman Marcus, Ralph Lauren, Calvin Klein, Debeers Diamonds Virginia Slims, Izod, Cover Girl Cosmetics, Nautica, Russell Athletic, Bloomindales, Saks Fifth Ave, JH Cohen and Victoria's Secret</p>
 
-<!-- <p>{{ classicItems }}</p> -->
-
-<!-- 
-<ul>
-    <li *ngFor="let classic of classicItems">
-        <h2>{{ classic.FileName }}</h2>
-        <p>{{ classic.Directory }}</p>
-    </li>
-</ul>
- -->
-
-<mat-spinner *ngIf="classicItems.length === 0"></mat-spinner>
-
-<mat-card *ngFor="let classic of classicItems" style="margin-top:10px;">
-    <mat-card-content>
-        <img src="{{ classic.Directory }}{{ classic.FileName }}" draggable="false" />
-    </mat-card-content>
-</mat-card>
+    <div class="contact">
+        CHUCK BAKER PHOTOGRAPHY<br>
+        42-24 Ninth Street<br>
+        Long Island City, NY 11101<br>
+        <br><br>
+        Cell 917-447-1219<br>
+        e-mail: <a href="mailto:nyfotoman@aol.com">nyfotoman@aol.com</a>
+    </div>
+</div>

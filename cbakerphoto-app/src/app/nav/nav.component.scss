@@ -9,6 +9,13 @@
     left: 0;
     z-index: 1;
 
+    button {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.75em;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
     .navLogo {
         border: 0;
         border-style: none;
@@ -29,5 +36,16 @@
         -moz-user-select: none;
         -o-user-select: none;
         user-select: none;
+    }
+
+    .footnote {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.625em;
+        text-align: right;
+        color: #999999;
+
+        position: absolute;
+        right: 1.25%;
+        bottom: 5%;
     }
 }
