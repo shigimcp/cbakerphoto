@@ -2,8 +2,8 @@
 // REF: https://github.com/wynfred/ngx-masonry-demo
 
 import { Component, OnInit, ViewChild } from '@angular/core';
-import * as Women from '../../assets/data/json/women.json';
 import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
+import * as Women from '../../assets/data/json/women.json';
 
 
 @Component({
