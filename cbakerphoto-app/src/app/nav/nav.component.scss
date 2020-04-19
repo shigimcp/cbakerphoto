@@ -10,7 +10,7 @@
     z-index: 1;
 
     button {
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: Roboto, Arial, Helvetica, sans-serif;
         font-size: 0.75em;
         font-weight: 700;
         text-transform: uppercase;
@@ -22,9 +22,15 @@
         outline: none;
         cursor: pointer;
 
-        margin: 0 50px;
+        height: 190%;
+
+        // margin: 0 1.25vw 0 2.5vw;
+        margin: 0 1.25% 0 2.5%;
+
         position: relative;
-        top: 40px;
+        // top: 40px;
+        top: 57.5%;
+        // left: 1.25vw;
 
         -webkit-user-drag: none;
         -khtml-user-drag: none;
@@ -47,5 +53,6 @@
         position: absolute;
         right: 1.25%;
         bottom: 5%;
+        z-index: -1;
     }
 }

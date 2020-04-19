@@ -1,9 +1,4 @@
-// REF: https://www.techiediaries.com/import-local-json-files-in-typescript/
-
 import { Component, OnInit } from '@angular/core';
-// import Classic from '../../assets/data/json/classic.json';
-import * as Classic from '../../assets/data/json/classic.json';
-// import { Classic } from '../../assets/data/json/classic.json';
 
 
 @Component({
@@ -15,19 +10,11 @@ import * as Classic from '../../assets/data/json/classic.json';
 
 export class AboutComponent implements OnInit {
 
-    title: 'JSON (local)';
-
-    // classicItems: any[] = [];
-    // classicItems: any = (Classic as any).default;
-    // classicItems: any[] = (Classic as any);
-    classicItems: any[] = (Classic as any).classic;
+    title: 'Contact / About';
 
     constructor() { }
 
     ngOnInit(): void {
-        console.log(Classic);
-        console.log('Classic.classic[1].FileName = ' + Classic.classic[1].FileName);
-        console.log('this.classicItems = ' + this.classicItems);
     }
 
 }

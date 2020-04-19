@@ -13,15 +13,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
-import { NavComponent } from './nav/nav.component';
-import { ParseCSVComponent } from './parse-csv/parse-csv.component';
-
 import { HttpClientModule } from '@angular/common/http';
+import { NgxMasonryModule } from 'ngx-masonry';
+
+import { NavComponent } from './nav/nav.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
-
-import { NgxMasonryModule } from 'ngx-masonry';
-// import { MasonryComponent } from './masonry/masonry.component';
 
 import { BoomComponent } from './boom/boom.component';
 import { ClassicComponent } from './classic/classic.component';
@@ -38,10 +35,8 @@ import { WomenComponent } from './women/women.component';
     declarations: [
         AppComponent,
         NavComponent,
-        ParseCSVComponent,
         HomeComponent,
         AboutComponent,
-        // MasonryComponent,
         BoomComponent,
         ClassicComponent,
         FitnessComponent,

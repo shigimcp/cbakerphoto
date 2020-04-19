@@ -15,7 +15,7 @@ import * as Women from '../../assets/data/json/women.json';
 
 export class WomenComponent implements OnInit {
 
-    title: 'JSON (local) & Masonry layout';
+    title: 'Women';
 
     womenItems: any[] = (Women as any).women;
 
