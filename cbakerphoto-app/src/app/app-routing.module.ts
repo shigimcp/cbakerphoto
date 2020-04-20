@@ -13,6 +13,8 @@ import { PortraitsComponent } from './portraits/portraits.component';
 import { StillComponent } from './still/still.component';
 import { WomenComponent } from './women/women.component';
 
+import { GalleryComponent } from './gallery/gallery.component';
+
 
 const routes: Routes = [
     { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -26,6 +28,7 @@ const routes: Routes = [
     { path: 'portraits', component: PortraitsComponent },
     { path: 'still', component: StillComponent },
     { path: 'women', component: WomenComponent },
+    { path: 'gallery', component: GalleryComponent },
 ];
 
 @NgModule({

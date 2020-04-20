@@ -29,6 +29,9 @@ import { PortraitsComponent } from './portraits/portraits.component';
 import { StillComponent } from './still/still.component';
 import { WomenComponent } from './women/women.component';
 
+import { GalleryComponent } from './gallery/gallery.component';
+import { ScrollToDirective } from './scroll-to.directive';
+
 
 @NgModule({
 
@@ -45,6 +48,8 @@ import { WomenComponent } from './women/women.component';
         PortraitsComponent,
         StillComponent,
         WomenComponent,
+        GalleryComponent,
+        ScrollToDirective,
     ],
 
     imports: [
