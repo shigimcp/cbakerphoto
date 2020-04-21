@@ -7,16 +7,20 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
+import { MatListModule } from '@angular/material/list';
+
 import { HttpClientModule } from '@angular/common/http';
 import { NgxMasonryModule } from 'ngx-masonry';
 
 import { NavComponent } from './nav/nav.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 
@@ -38,6 +42,7 @@ import { ScrollToDirective } from './scroll-to.directive';
     declarations: [
         AppComponent,
         NavComponent,
+        SidenavComponent,
         HomeComponent,
         AboutComponent,
         BoomComponent,
@@ -58,11 +63,13 @@ import { ScrollToDirective } from './scroll-to.directive';
         BrowserAnimationsModule,
         MatToolbarModule,
         MatSidenavModule,
+        // MatSidenav,
         MatIconModule,
         MatCardModule,
         MatButtonModule,
         MatProgressBarModule,
         MatProgressSpinnerModule,
+        MatListModule,
         HttpClientModule,
         NgxMasonryModule
     ],

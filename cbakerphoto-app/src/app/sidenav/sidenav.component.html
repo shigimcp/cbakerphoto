@@ -1,0 +1,28 @@
+<!-- <h1>COMPONENT: sidenav</h1> -->
+
+<button class="btnTest" (click)="sidenav.toggle()">Open</button>
+<!-- <button class="burger" mat-icon-button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button> -->
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" position="end">
+        <mat-nav-list>
+
+            <button mat-list-item routerLink="/women">Women</button>
+            <button mat-list-item routerLink="/portraits">Portraits</button>
+            <button mat-list-item routerLink="/boom">Boom Project</button>
+            <button mat-list-item routerLink="/life">Lifestyle</button>
+            <button mat-list-item routerLink="/fitness">Fitness</button>
+            <button mat-list-item routerLink="/men">Men</button>
+            <button mat-list-item routerLink="/classic">Classics</button>
+            <button mat-list-item routerLink="/still">Still Life</button>
+            <button mat-list-item routerLink="/about">Contact / About</button>
+            <button mat-list-item routerLink="/gallery" style="color: #999999;">Gallery (TEST AREA)</button>
+
+            <!-- <button mat-list-item (click)="sidenav.toggle()">Close</button> -->
+
+        </mat-nav-list>
+    </mat-sidenav>
+</mat-sidenav-container>
+
+<!-- <button class="burger" mat-icon-button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button> -->
+

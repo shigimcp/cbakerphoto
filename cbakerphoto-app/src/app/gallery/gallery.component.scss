@@ -2,12 +2,15 @@
 .masonryGrid {
     // border: 2px solid #ff0000;
     // border: 0;
+    // opacity: 10%;
 
     width: 100vw;
 
     margin: 0 auto;
     padding: 70px 0 0 0;
     // padding: 70px 0;
+
+    // z-index: 0;
 
     ngx-masonry {
         // border: 2px solid #00ff00;

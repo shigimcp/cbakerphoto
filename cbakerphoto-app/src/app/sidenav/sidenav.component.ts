@@ -6,13 +6,13 @@ import { Component, OnInit } from '@angular/core';
 
 
 @Component({
-    selector: 'app-nav',
-    templateUrl: './nav.component.html',
-    styleUrls: ['./nav.component.scss']
+    selector: 'app-sidenav',
+    templateUrl: './sidenav.component.html',
+    styleUrls: ['./sidenav.component.scss']
 })
 
 
-export class NavComponent implements OnInit {
+export class SidenavComponent implements OnInit {
 
     constructor() { }
 

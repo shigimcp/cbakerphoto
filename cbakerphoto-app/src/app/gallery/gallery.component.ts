@@ -21,6 +21,8 @@ export class GalleryComponent implements OnInit {
 
     constructor() { }
 
+
+    // ========================= MASONRY: defs =========================
     womenItems: any[] = (Women as any).women;
 
     @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent;
@@ -28,52 +30,12 @@ export class GalleryComponent implements OnInit {
     masonryImages: string[];
 
     limit = 6;
-    imageIncrment = this.limit / 2;
+    imageIncrment = this.limit / 1;
 
     public masonryOptions: NgxMasonryOptions = {
         gutter: 0,
     };
-
-
-    // areas = ['masonryGridID'];
-    // reached = false;
-    // passed = false;
-
-    @HostListener('window:scroll', ['$event'])
-
-    onScroll() {
-
-        // const activeElem = this.areas[Math.floor(window.pageYOffset / document.documentElement.clientHeight)];
-
-        // console.log('activeElem = ' + activeElem);
-        // console.log('this.masonry = ' + this.masonry);
-
-        const galleryBtm = document.getElementById('masonryGridID').getBoundingClientRect().bottom;
-
-        console.log('galleryBtm = ' + galleryBtm);
-
-        if (galleryBtm <= window.innerHeight) {
-        // if (galleryBtm <= (window.innerHeight * 0.975)) {
-            this.showMoreImages();
-        }
-
-        // const elementPosition = this.areas.offsetTop;
-        // console.log('elementPosition = ' + elementPosition);
-
-        // const elementPosition = this.areas.nativeElement.offsetTop;
-        // const elementHeight = this.areas.nativeElement.clientHeight;
-        // const scrollPosition = window.pageYOffset;
-
-        // // set 'true' when scrolling has reached current element
-        // this.reached = scrollPosition >= elementPosition;
-
-        // console.log('this.reached = ' + this.reached);
-
-        // // set 'true' when scrolling has passed current element height
-        // this.passed = scrollPosition >= (elementPosition + elementHeight);
-
-        // console.log('this.passed = ' + this.passed);
-    }
+    // ========================= END MASONRY: defs =========================
 
 
     ngOnInit(): void {
@@ -84,6 +46,24 @@ export class GalleryComponent implements OnInit {
         this.masonryImages = this.womenItems.slice(0, this.limit);
     }
 
+
+    // ========================= FUNCTION: onScroll() =========================
+    @HostListener('window:scroll', ['$event'])
+
+    onScroll() {
+
+        const galleryBtm = document.getElementById('masonryGridID').getBoundingClientRect().bottom;
+        // console.log('galleryBtm = ' + galleryBtm);
+
+        if (galleryBtm < window.innerHeight) {
+        // if (galleryBtm <= (window.innerHeight * 0.975)) {
+            this.showMoreImages();
+        }
+    }
+    // ========================= END FUNCTION: onScroll() =========================
+
+
+    // ========================= MASONRY: NAV =========================
     showMoreImages() {
         // this.limit += 9;
         this.limit += this.imageIncrment;
@@ -99,4 +79,6 @@ export class GalleryComponent implements OnInit {
     removeImage() {
         this.masonryImages.pop();
     }
+    // ========================= END MASONRY: NAV =========================
+
 }
