@@ -1,0 +1,54 @@
+{
+    "navMenu": [
+        {
+            "gallery": "women",
+            "menuItem": "Women",
+            "location": "assets/data/women.json"
+        },
+        {
+            "gallery": "portraits",
+            "menuItem": "Portraits",
+            "location": "assets/data/portraits.json"
+        },
+        {
+            "gallery": "boom",
+            "menuItem": "Boom Project",
+            "location": "assets/data/boom.json"
+        },
+        {
+            "gallery": "life",
+            "menuItem": "Life",
+            "location": "assets/data/life.json"
+        },
+        {
+            "gallery": "fitness",
+            "menuItem": "Fitness",
+            "location": "assets/data/fitness.json"
+        },
+        {
+            "gallery": "men",
+            "menuItem": "Men",
+            "location": "assets/data/men.json"
+        },
+        {
+            "gallery": "classic",
+            "menuItem": "Classic",
+            "location": "assets/data/classic.json"
+        },
+        {
+            "gallery": "still",
+            "menuItem": "Still",
+            "location": "assets/data/still.json"
+        },
+        {
+            "gallery": "about",
+            "menuItem": "Contact / About",
+            "location": ""
+        },
+        {
+            "gallery": "gallery",
+            "menuItem": "Gallery (TEST AREA)",
+            "location": "assets/data/women.json"
+        }
+    ]
+}
