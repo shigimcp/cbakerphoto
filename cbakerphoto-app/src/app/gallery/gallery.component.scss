@@ -8,13 +8,11 @@
 
     margin: 0 auto;
     padding: 70px 0 0 0;
-    // padding: 70px 0;
-
-    // z-index: 0;
 
     ngx-masonry {
         // border: 2px solid #00ff00;
         // border: 0;
+
         width: 100%;
         margin: 0 auto;
         padding: 0;
@@ -24,8 +22,10 @@
             // border: 0;
 
             // width: 25%;
-            width: 33.333%;
-            // width: 50%;
+            // width: 33.333%;
+            width: 33.333vw;
+            // min-width: 500px;
+            // max-width: 33.333%;
 
             margin: 0 0 -6px 0;
             padding: 0;
@@ -33,8 +33,10 @@
             img {
                 // border: 2px solid #ff00ff;
                 // border: 0;
+
                 width: 100%;
                 margin: 0;
+
                 padding: 0;
 
                 -webkit-user-select: none;
@@ -42,6 +44,8 @@
                 -moz-user-select: none;
                 -o-user-select: none;
                 user-select: none;
+
+                // cursor: pointer;
             }
         }
     }

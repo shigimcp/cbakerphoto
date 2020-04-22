@@ -1,0 +1,49 @@
+{
+    "navMenu": [
+        {
+            "name": "boom",
+            "navItem": "Boom Project",
+            "location": "assets/data/boom.json"
+        },
+        {
+            "name": "classic",
+            "navItem": "Classic",
+            "location": "assets/data/classic.json"
+        },
+        {
+            "name": "fitness",
+            "navItem": "Fitness",
+            "location": "assets/data/fitness.json"
+        },
+        {
+            "name": "life",
+            "navItem": "Life",
+            "location": "assets/data/life.json"
+        },
+        {
+            "name": "men",
+            "navItem": "Men",
+            "location": "assets/data/men.json"
+        },
+        {
+            "name": "portraits",
+            "navItem": "Portraits",
+            "location": "assets/data/portraits.json"
+        },
+        {
+            "name": "still",
+            "navItem": "Still",
+            "location": "assets/data/still.json"
+        },
+        {
+            "name": "women",
+            "navItem": "Women",
+            "location": "assets/data/women.json"
+        },
+        {
+            "name": "about",
+            "navItem": "Contact / About",
+            "location": ""
+        }
+    ]
+}

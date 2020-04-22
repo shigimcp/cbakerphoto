@@ -3,6 +3,9 @@
 
 
 import { Component, OnInit } from '@angular/core';
+// import { Input } from '@angular/core';
+
+import * as navMenu from '../../assets/data/json/navMenu.json';
 
 
 @Component({
@@ -14,8 +17,16 @@ import { Component, OnInit } from '@angular/core';
 
 export class NavComponent implements OnInit {
 
+    // @Input() thisGallery;
+
     constructor() { }
 
+    navItems: any[] = (navMenu as any).navMenu;
+
     ngOnInit(): void {
+    }
+
+    navClick() {
+        console.log('navClick() triggered!');
     }
 }

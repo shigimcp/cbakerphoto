@@ -1,11 +1,13 @@
 // REF: https://github.com/wynfred/ngx-masonry
 // REF: https://github.com/wynfred/ngx-masonry-demo
 
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+// import { Input } from '@angular/core';
+
+import { ViewChild } from '@angular/core';
+import { HostListener } from '@angular/core';
 import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
 import * as Women from '../../assets/data/json/women.json';
-
-import { HostListener } from '@angular/core';
 
 
 @Component({
@@ -18,6 +20,12 @@ import { HostListener } from '@angular/core';
 export class GalleryComponent implements OnInit {
 
     title: 'Gallery';
+    // thisGallery: 'women';
+
+    // @Input() title;
+    // @Input() classic;
+    // @Input() navItem;
+    // @Input() thisGallery;
 
     constructor() { }
 
@@ -32,6 +40,9 @@ export class GalleryComponent implements OnInit {
     limit = 6;
     imageIncrment = this.limit / 1;
 
+    // limit = Math.round(0.333 * window.screen.width / 500);
+    // imageIncrment = Math.round(this.limit / 1);
+
     public masonryOptions: NgxMasonryOptions = {
         gutter: 0,
     };
@@ -42,6 +53,8 @@ export class GalleryComponent implements OnInit {
         // console.log(Women);
         // console.log('Women.classic[1].FileName = ' + Women.women[1].FileName);
         // console.log('this.womenItems = ' + this.womenItems);
+
+        // console.log('this.limit = ' + this.limit + '     this.imageIncrment = ' + this.imageIncrment);
 
         this.masonryImages = this.womenItems.slice(0, this.limit);
     }
@@ -80,5 +93,4 @@ export class GalleryComponent implements OnInit {
         this.masonryImages.pop();
     }
     // ========================= END MASONRY: NAV =========================
-
 }

@@ -1,5 +1,5 @@
 <!-- <h1>COMPONENT: nav</h1> -->
-
+<!-- 
 <mat-toolbar class="fixed-header" color="gray">
 
     <img class="navLogo" src="assets/images/0elements/cbaker_logo.svg" routerLink="/">
@@ -15,33 +15,17 @@
     <button mat-button routerLink="/about">Contact / About</button>
     <button mat-button routerLink="/gallery" style="color: #999999;">Gallery (TEST AREA)</button>
 
-    <!-- This fills the remaining space of the current row -->
+    This fills the remaining space of the current row
     <span class="fill-remaining-space"></span>
 
     <button mat-icon-button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button>
-    <!-- <button mat-icon-button><mat-icon>menu</mat-icon></button> -->
 
-    <!-- <app-sidenav></app-sidenav> -->
 </mat-toolbar>
-
-<mat-sidenav-container autosize>
-    <mat-sidenav #sidenav mode="side" position="end">
-        <!-- <mat-nav-list> -->
-<!-- 
-            <button mat-list-item routerLink="/women">Women</button>
-            <button mat-list-item routerLink="/portraits">Portraits</button>
-            <button mat-list-item routerLink="/boom">Boom Project</button>
-            <button mat-list-item routerLink="/life">Lifestyle</button>
-            <button mat-list-item routerLink="/fitness">Fitness</button>
-            <button mat-list-item routerLink="/men">Men</button>
-            <button mat-list-item routerLink="/classic">Classics</button>
-            <button mat-list-item routerLink="/still">Still Life</button>
-            <button mat-list-item routerLink="/about">Contact / About</button>
-            <button mat-list-item routerLink="/gallery" style="color: #999999;">Gallery (TEST AREA)</button>
-
-            <button mat-list-item (click)="sidenav.toggle()">Close</button>
  -->
-        <!-- </mat-nav-list> -->
+
+<!-- 
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" position="end">
 
         <button mat-button routerLink="/women">Women</button>
         <button mat-button routerLink="/portraits">Portraits</button>
@@ -54,5 +38,35 @@
         <button mat-button routerLink="/about">Contact / About</button>
         <button mat-button routerLink="/gallery" style="color: #999999;">Gallery (TEST AREA)</button>
 
+    </mat-sidenav>
+</mat-sidenav-container>
+ -->
+
+
+<mat-toolbar class="fixed-header" color="gray">
+
+    <img class="navLogo" src="assets/images/0elements/cbaker_logo.svg" routerLink="/">
+
+    <div *ngFor="let navItem of navItems">
+    <!-- <div *ngFor="let navItem of navItems" [thisGallery]="navItem.gallery"> -->
+        <!-- <app-gallery [thisGallery]="navItem.gallery"></app-gallery> -->
+
+        <!-- <button mat-button routerLink="/{{ navItem.gallery }}" (click)="navClick()">{{ navItem.menuItem }}</button> -->
+        <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navClick()">{{ navItem.menuItem }}</button>
+        <!-- <button *ngIf="navItem.location" mat-button routerLink="/{{ navItem.gallery }}">{{ navItem.menuItem }}</button> -->
+    </div>
+
+    <span class="fill-remaining-space"></span>
+
+    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" position="end">
+        <div *ngFor="let navItem of navItems">
+            <button mat-button [attr.gallery]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navClick()">{{ navItem.menuItem }}</button>
+            <!-- <button *ngIf="navItem.location" mat-button routerLink="/{{ navItem.gallery }}">{{ navItem.menuItem }}</button> -->
+        </div>
     </mat-sidenav>
 </mat-sidenav-container>

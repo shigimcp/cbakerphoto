@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
-// import { MatSidenav } from '@angular/material/sidenav';
 import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
@@ -63,7 +62,6 @@ import { ScrollToDirective } from './scroll-to.directive';
         BrowserAnimationsModule,
         MatToolbarModule,
         MatSidenavModule,
-        // MatSidenav,
         MatIconModule,
         MatCardModule,
         MatButtonModule,
