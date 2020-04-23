@@ -4,6 +4,8 @@
 
 import { Component, OnInit } from '@angular/core';
 
+import * as navMenu from '../../assets/data/json/navMenu.json';
+
 
 @Component({
     selector: 'app-sidenav',
@@ -16,6 +18,13 @@ export class SidenavComponent implements OnInit {
 
     constructor() { }
 
+    navItems: any[] = (navMenu as any).navMenu;
+
     ngOnInit(): void {
+    }
+
+    navClick() {
+        console.log('navClick() triggered!');
+        // this.sidenav.toggle();
     }
 }

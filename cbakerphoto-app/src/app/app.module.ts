@@ -33,7 +33,10 @@ import { StillComponent } from './still/still.component';
 import { WomenComponent } from './women/women.component';
 
 import { GalleryComponent } from './gallery/gallery.component';
-import { ScrollToDirective } from './scroll-to.directive';
+
+// import { DataService } from './data.service';
+// import { NavigationService } from './navigation.service';
+// import { ScrollToDirective } from './scroll-to.directive';
 
 
 @NgModule({
@@ -53,7 +56,9 @@ import { ScrollToDirective } from './scroll-to.directive';
         StillComponent,
         WomenComponent,
         GalleryComponent,
-        ScrollToDirective,
+        // DataService,
+        // NavigationService,
+        // ScrollToDirective,
     ],
 
     imports: [

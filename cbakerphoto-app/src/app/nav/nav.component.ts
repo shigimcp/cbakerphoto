@@ -4,6 +4,11 @@
 
 import { Component, OnInit } from '@angular/core';
 // import { Input } from '@angular/core';
+// import { ViewChild } from '@angular/core';
+
+// import { MatToolbarModule } from '@angular/material/toolbar';
+// import { MatSidenavModule } from '@angular/material/sidenav';
+// import { MatIconModule } from '@angular/material/icon';
 
 import * as navMenu from '../../assets/data/json/navMenu.json';
 
@@ -23,10 +28,20 @@ export class NavComponent implements OnInit {
 
     navItems: any[] = (navMenu as any).navMenu;
 
+    // @ViewChild(MatToolbarModule) sidenav: MatToolbarModule;
+    // @ViewChild(MatSidenavModule) sidenav: MatSidenavModule;
+    // @ViewChild(MatIconModule) sidenav: MatIconModule;
+
+    mobile = false;
+
     ngOnInit(): void {
+        // if (window.screen.width === 360) { // 768px portrait
+        //     this.mobile = true;
+        // }
     }
 
     navClick() {
         console.log('navClick() triggered!');
+        // this.sidenav.toggle();
     }
 }
