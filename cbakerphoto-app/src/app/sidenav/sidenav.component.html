@@ -1,20 +1,16 @@
 <!-- <h1>COMPONENT: sidenav</h1> -->
 <!-- REF: https://stackoverflow.com/questions/45847994/angular-2-material-sidenav-how-to-remove-backdrop -->
+<!-- REF: https://stackoverflow.com/questions/53741232/angular-material-button-remove-autofocus -->
+<!-- REF: https://material.angular.io/cdk/a11y/overview#activedescendantkeymanager -->
 
 
-<!-- <button class="btnTest" (click)="sidenav.toggle()">Open</button> -->
-<!-- <button class="burger" mat-icon-button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button> -->
-<!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
-
-<!-- <mat-sidenav-container> -->
 <mat-sidenav-container [hasBackdrop]="false">
-    <mat-icon (click)="sidenav.toggle()">menu</mat-icon>
+    <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
 
-    <mat-sidenav #sidenav mode="over" position="end">
+    <mat-sidenav #sidenav mode="over" position="end" id="sidenave">
         <div *ngFor="let navItem of navItems" cdkFocusRegionStart>
-            <button mat-button [attr.gallery]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navClick()">{{ navItem.menuItem }}</button>
+            <button mat-button [attr.gallery]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="sidenav.toggle()">{{ navItem.menuItem }}</button>
         </div>
     </mat-sidenav>
-</mat-sidenav-container>
 
-<!-- <button class="burger" mat-icon-button><mat-icon (click)="sidenav.toggle()">menu</mat-icon></button> -->
+</mat-sidenav-container>

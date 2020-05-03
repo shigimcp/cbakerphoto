@@ -19,7 +19,7 @@ import * as Fitness from '../../assets/data/json/fitness.json';
 
 export class FitnessComponent implements OnInit {
 
-    title: 'Fitness';
+    title = 'Fitness';
 
     constructor() { }
 

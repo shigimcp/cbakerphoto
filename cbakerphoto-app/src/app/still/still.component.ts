@@ -19,7 +19,7 @@ import * as Still from '../../assets/data/json/still.json';
 
 export class StillComponent implements OnInit {
 
-    title: 'Still';
+    title = 'Still';
 
     constructor() { }
 

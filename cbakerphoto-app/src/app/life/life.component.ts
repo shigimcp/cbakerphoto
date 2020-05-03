@@ -19,7 +19,7 @@ import * as Life from '../../assets/data/json/life.json';
 
 export class LifeComponent implements OnInit {
 
-    title: 'Life';
+    title = 'Life';
 
     constructor() { }
 

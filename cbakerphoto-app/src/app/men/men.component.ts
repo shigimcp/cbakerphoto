@@ -19,7 +19,7 @@ import * as Men from '../../assets/data/json/men.json';
 
 export class MenComponent implements OnInit {
 
-    title: 'Men';
+    title = 'Men';
 
     constructor() { }
 

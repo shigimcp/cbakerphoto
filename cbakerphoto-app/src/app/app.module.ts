@@ -1,9 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -15,8 +16,9 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { MatListModule } from '@angular/material/list';
 
-import { HttpClientModule } from '@angular/common/http';
 import { NgxMasonryModule } from 'ngx-masonry';
+
+import { ResponsiveModule } from 'ngx-responsive'
 
 import { NavComponent } from './nav/nav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -35,7 +37,7 @@ import { WomenComponent } from './women/women.component';
 import { GalleryComponent } from './gallery/gallery.component';
 
 // import { DataService } from './data.service';
-// import { NavigationService } from './navigation.service';
+import { NavigationService } from './navigation.service';
 // import { ScrollToDirective } from './scroll-to.directive';
 
 
@@ -64,6 +66,7 @@ import { GalleryComponent } from './gallery/gallery.component';
     imports: [
         BrowserModule,
         AppRoutingModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         MatToolbarModule,
         MatSidenavModule,
@@ -73,11 +76,15 @@ import { GalleryComponent } from './gallery/gallery.component';
         MatProgressBarModule,
         MatProgressSpinnerModule,
         MatListModule,
-        HttpClientModule,
-        NgxMasonryModule
+        NgxMasonryModule,
+        ResponsiveModule.forRoot()
     ],
 
-    providers: [],
+    providers: [
+        // DataService,
+        NavigationService,
+        // ScrollToDirective,
+    ],
 
     bootstrap: [AppComponent]
 })

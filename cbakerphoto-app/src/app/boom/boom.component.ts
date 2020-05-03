@@ -19,7 +19,7 @@ import * as Boom from '../../assets/data/json/boom.json';
 
 export class BoomComponent implements OnInit {
 
-    title: 'Boom';
+    title = 'Boom Project';
 
     constructor() { }
 

@@ -19,7 +19,7 @@ import * as Women from '../../assets/data/json/women.json';
 
 export class HomeComponent implements OnInit {
 
-    title: 'Home';
+    title = 'Home';
 
     constructor() { }
 

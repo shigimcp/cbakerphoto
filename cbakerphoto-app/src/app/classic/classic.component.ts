@@ -19,7 +19,7 @@ import * as Classic from '../../assets/data/json/classic.json';
 
 export class ClassicComponent implements OnInit {
 
-    title: 'Classic';
+    title = 'Classic';
     // thisGallery: 'classic';
 
     // @Input() title;

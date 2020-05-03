@@ -19,7 +19,7 @@ import * as Portraits from '../../assets/data/json/portraits.json';
 
 export class PortraitsComponent implements OnInit {
 
-    title: 'Portraits';
+    title = 'Portraits';
 
     constructor() { }
 

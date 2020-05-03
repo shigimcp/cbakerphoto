@@ -19,7 +19,7 @@ import * as Women from '../../assets/data/json/women.json';
 
 export class GalleryComponent implements OnInit {
 
-    title: 'Gallery';
+    title = 'Gallery';
     // thisGallery: 'women';
 
     // @Input() title;
