@@ -7,7 +7,8 @@
     <img class="navLogo" src="assets/images/0elements/cbaker_logo.svg" routerLink="/">
 
     <!-- <ng-container *showItDevice="['desktop']"> -->
-    <ng-container *showItSizes="{min:1025}">
+    <!-- <ng-container *showItSizes="{min:1025}"> -->
+    <ng-container *showItSizes="{min:1240}">
         <div *ngFor="let navItem of navItems">
             <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}">{{ navItem.menuItem }}</button>
             <!-- <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navToggle()">{{ navItem.menuItem }}</button> -->
@@ -19,7 +20,8 @@
     <!-- <mat-icon class="navClick" (click)="navToggle()">menu</mat-icon> -->
     <!-- <mat-icon (click)="navToggle()">menu</mat-icon> -->
     <!-- <mat-icon (click)="navToggle()" *hideItDevice="['desktop']">menu</mat-icon> -->
-    <mat-icon (click)="navToggle()" *showItSizes="{max:1025}">menu</mat-icon>
+    <!-- <mat-icon (click)="navToggle()" *showItSizes="{max:1025}">menu</mat-icon> -->
+    <mat-icon (click)="navToggle()" *showItSizes="{max:1240}">menu</mat-icon>
 
 </mat-toolbar>
 
@@ -35,4 +37,5 @@
 -->
 
 <!-- <app-sidenav></app-sidenav> -->
-<app-sidenav *showItSizes="{max:1025}"></app-sidenav>
+<!-- <app-sidenav *showItSizes="{max:1025}"></app-sidenav> -->
+<app-sidenav *showItSizes="{max:1240}"></app-sidenav>

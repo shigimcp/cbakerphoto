@@ -6,16 +6,25 @@
 
 
 import { Component, OnInit } from '@angular/core';
-import { HostListener } from '@angular/core';
+// import { HostListener } from '@angular/core';
 
 
 import { NavigationService } from '../navigation.service';
 import * as navMenu from '../../assets/data/json/navMenu.json';
 
-import { OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+// import { OnDestroy } from '@angular/core';
+// import { Subscription } from 'rxjs';
+// import {
+//     IeInfoRx,
+//     ResponsiveSizeInfoRx,
+//     OrientationInfoRx,
+//     DeviceStandardInfoRx,
+//     DeviceInfoRx,
+//     UserAgentInfoRx,
+//     BrowserInfoRx
+// } from 'ngx-responsive';
 
-import { IeInfoRx, ResponsiveSizeInfoRx, OrientationInfoRx, DeviceStandardInfoRx, DeviceInfoRx, UserAgentInfoRx, BrowserInfoRx } from 'ngx-responsive';
+import { ResponsiveService } from '../responsive.service';
 
 
 @Component({
@@ -25,27 +34,31 @@ import { IeInfoRx, ResponsiveSizeInfoRx, OrientationInfoRx, DeviceStandardInfoRx
 })
 
 
-// export class NavComponent implements OnInit {
-export class NavComponent implements OnInit, OnDestroy {
+export class NavComponent implements OnInit {
+// export class NavComponent implements OnInit, OnDestroy {
 
     title = 'Main Navigation';
 
     // constructor(private navigationService: NavigationService) { }
-
     constructor(
         private navigationService: NavigationService,
-        public ieInfoRx: IeInfoRx,
-        public browserInfoRx: BrowserInfoRx,
-        public devicesInfoRx: DeviceInfoRx,
-        public devicesStandardInfoRx: DeviceStandardInfoRx,
-        public orientationInfoRx: OrientationInfoRx,
-        public responsiveSizeInfoRx: ResponsiveSizeInfoRx,
-        public userAgentInfoRx: UserAgentInfoRx
+        private responsiveService: ResponsiveService,
     ) { }
 
+    // constructor(
+    //     private navigationService: NavigationService,
+    //     public ieInfoRx: IeInfoRx,
+    //     public browserInfoRx: BrowserInfoRx,
+    //     public devicesInfoRx: DeviceInfoRx,
+    //     public devicesStandardInfoRx: DeviceStandardInfoRx,
+    //     public orientationInfoRx: OrientationInfoRx,
+    //     public responsiveSizeInfoRx: ResponsiveSizeInfoRx,
+    //     public userAgentInfoRx: UserAgentInfoRx
+    // ) { }
 
-    public screenWidth: any;
-    public screenHeight: any;
+
+    // public screenWidth: any;
+    // public screenHeight: any;
 
     navItems: any[] = (navMenu as any).navMenu;
 
@@ -62,28 +75,28 @@ export class NavComponent implements OnInit, OnDestroy {
     // }
 
 
-    private subscriptions: Subscription[] = [];
+    // private subscriptions: Subscription[] = [];
 
     public ngOnInit(): void {
         console.log('-------------------------');
         console.log('NAV: ngOnInit() triggered!');
 
-        this.screenWidth = window.innerWidth;
-        this.screenHeight = window.innerHeight;
+        // this.screenWidth = window.innerWidth;
+        // this.screenHeight = window.innerHeight;
 
-        console.log('this.screenWidth = ' + this.screenWidth);
-        console.log('this.screenHeight = ' + this.screenHeight);
+        // console.log('this.screenWidth = ' + this.screenWidth);
+        // console.log('this.screenHeight = ' + this.screenHeight);
 
 
-        console.log('-------------------------');
-        this._subscribe();
-        this.ieInfoRx.connect();
-        this.browserInfoRx.connect();
-        this.devicesInfoRx.connect();
-        this.devicesStandardInfoRx.connect();
-        this.orientationInfoRx.connect();
-        this.responsiveSizeInfoRx.connect();
-        this.userAgentInfoRx.connect();
+        // console.log('-------------------------');
+        // this._subscribe();
+        // this.ieInfoRx.connect();
+        // this.browserInfoRx.connect();
+        // this.devicesInfoRx.connect();
+        // this.devicesStandardInfoRx.connect();
+        // this.orientationInfoRx.connect();
+        // this.responsiveSizeInfoRx.connect();
+        // this.userAgentInfoRx.connect();
     }
 
 
@@ -103,89 +116,89 @@ export class NavComponent implements OnInit, OnDestroy {
     }
 
 
-    @HostListener('window:resize', ['$event'])
+    // @HostListener('window:resize', ['$event'])
 
-    onResize(event: any) {
-        // console.log('-------------------------');
-        // console.log('NAV: onResize() triggered!');
+    // onResize(event: any) {
+    //     // console.log('-------------------------');
+    //     // console.log('NAV: onResize() triggered!');
 
-        this.screenWidth = window.innerWidth;
-        this.screenHeight = window.innerHeight;
+    //     this.screenWidth = window.innerWidth;
+    //     this.screenHeight = window.innerHeight;
 
-        // console.log('this.screenWidth = ' + this.screenWidth);
-        // console.log('this.screenHeight = ' + this.screenHeight);
-    }
+    //     // console.log('this.screenWidth = ' + this.screenWidth);
+    //     // console.log('this.screenHeight = ' + this.screenHeight);
+    // }
 
 
 
-    public ngOnDestroy(): void {
-        this._unsubscribe();
-        this.ieInfoRx.disconnect();
-        this.browserInfoRx.disconnect();
-        this.devicesInfoRx.disconnect();
-        this.devicesStandardInfoRx.disconnect();
-        this.orientationInfoRx.disconnect();
-        this.responsiveSizeInfoRx.disconnect();
-        this.userAgentInfoRx.disconnect();
-    }
+    // public ngOnDestroy(): void {
+    //     this._unsubscribe();
+    //     this.ieInfoRx.disconnect();
+    //     this.browserInfoRx.disconnect();
+    //     this.devicesInfoRx.disconnect();
+    //     this.devicesStandardInfoRx.disconnect();
+    //     this.orientationInfoRx.disconnect();
+    //     this.responsiveSizeInfoRx.disconnect();
+    //     this.userAgentInfoRx.disconnect();
+    // }
 
-    public thisUserAgent(userAgent) {
-        console.log('userAgent ==========>', userAgent);
-    }
+    // public thisUserAgent(userAgent) {
+    //     console.log('userAgent ==========>', userAgent);
+    // }
 
-    private _subscribe(): void {
-        this.subscriptions.push(
-            this.ieInfoRx.getIE.subscribe((data) => {
-                console.log('this.ieInfoRx.getIE ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.browserInfoRx.getBrowser.subscribe((data) => {
-                console.log('this.browserInfoRx.getBrowser ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.devicesInfoRx.getDevice.subscribe((data) => {
-                console.log('this.devicesInfoRx.getDevice ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.devicesStandardInfoRx.getStandardDevice.subscribe((data) => {
-                console.log('this.devicesStandardInfoRx.subject$ ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.orientationInfoRx.getOrientation.subscribe((data) => {
-                console.log('this.orientationInfoRx.getOrientation ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.responsiveSizeInfoRx.getResponsiveSize.subscribe((data) => {
-                console.log('this.responsiveSizeInfoRx.getResponsiveSize ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-        this.subscriptions.push(
-            this.userAgentInfoRx.getUserAgent.subscribe((data) => {
-                console.log('this.userAgentInfoRx.getUserAgent ===>', data);
-            }, (err) => {
-                console.log('Error', err);
-            })
-        );
-    }
+    // private _subscribe(): void {
+    //     this.subscriptions.push(
+    //         this.ieInfoRx.getIE.subscribe((data) => {
+    //             console.log('this.ieInfoRx.getIE ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.browserInfoRx.getBrowser.subscribe((data) => {
+    //             console.log('this.browserInfoRx.getBrowser ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.devicesInfoRx.getDevice.subscribe((data) => {
+    //             console.log('this.devicesInfoRx.getDevice ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.devicesStandardInfoRx.getStandardDevice.subscribe((data) => {
+    //             console.log('this.devicesStandardInfoRx.subject$ ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.orientationInfoRx.getOrientation.subscribe((data) => {
+    //             console.log('this.orientationInfoRx.getOrientation ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.responsiveSizeInfoRx.getResponsiveSize.subscribe((data) => {
+    //             console.log('this.responsiveSizeInfoRx.getResponsiveSize ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    //     this.subscriptions.push(
+    //         this.userAgentInfoRx.getUserAgent.subscribe((data) => {
+    //             console.log('this.userAgentInfoRx.getUserAgent ===>', data);
+    //         }, (err) => {
+    //             console.log('Error', err);
+    //         })
+    //     );
+    // }
 
-    private _unsubscribe(): void {
-        this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
-    }
+    // private _unsubscribe(): void {
+    //     this.subscriptions.forEach((subscription: Subscription) => subscription.unsubscribe());
+    // }
 }

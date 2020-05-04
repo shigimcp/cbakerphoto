@@ -31,7 +31,7 @@
 
 <div class="testContainer">
 
-    <h2>***** Something should happen below if ngx-responsive (deviceConfig) is working... *****</h2>
+    <h2>***** Something should happen below if ngx-responsive is working... *****</h2>
     <p>NOTE: the messages DO NOT represent proper syntax!</p>
 
 
@@ -43,7 +43,7 @@
     <p *isIphone>I'll show if I'm a iPhone device. &nbsp;&nbsp;&nbsp; *isIphone</p>
     <p *isChrome>I'll show if I'm a chrome browser. &nbsp;&nbsp;&nbsp; *isChrome</p>
     <p *isDesktop>I'll show if I'm a desktop. &nbsp;&nbsp;&nbsp; *isDesktop</p>
-
+    <br>
     <p *isPortrait>I'll show you if I'm a portrait state. &nbsp;&nbsp;&nbsp; *isPortrait</p>
     <p *isLandscape>I'll show you if I'm a landscape state. &nbsp;&nbsp;&nbsp; *isLandscape</p>
 
@@ -53,13 +53,17 @@
     <h3>*showIt[...]</h3>
     <hr>
 
+    <p *showItStandard="['android mobile','windows phone']">I'll show you if I'm a android mobile or a windows phone device. &nbsp;&nbsp;&nbsp; *showItStandard = [android mobile, windows phone]</p>
     <p *showItStandard="['iphone','ipad']">I'll show if I'm a iPhone or ipad device. &nbsp;&nbsp;&nbsp; *showItStandard = [iphone, ipad]</p>
-
+    <br>
     <p *showItSizes="{min:955,max:1057}">I'll show if responsive-window width is between the min and max. &nbsp;&nbsp;&nbsp; *showItSizes = (min:955,max:1057)</p>
     <p *showItSizes="{min:750}">I'll show if responsive-window width is greater than or equal to min. &nbsp;&nbsp;&nbsp; *showItSizes = (min:750)</p>
-
+    <br>
+    <p *showItDevice="['mobile']">I'll show if I'm a mobile device. &nbsp;&nbsp;&nbsp; *showItDevice = [mobile]</p>
+    <p *showItDevice="['tablet']">I'll show if I'm a tablet device. &nbsp;&nbsp;&nbsp; *showItDevice = [mobile]</p>
     <p *showItDevice="['desktop']">I'll show if I'm a desktop device. &nbsp;&nbsp;&nbsp; *showItDevice = [desktop]</p>
     <p *showItDevice="['mobile','tablet']">I'll show if I'm a tablet or a mobile device. &nbsp;&nbsp;&nbsp; *showItDevice = [mobile, tablet]</p>
+    <p *showItDevice="['mobile','tablet','desktop']">I'll show if I'm a desktop or tablet or a mobile device. &nbsp;&nbsp;&nbsp; *showItDevice = [mobile, tablet, desktop]</p>
 
 
     <!-- =========================================================================== -->
@@ -67,13 +71,16 @@
     <hr>
 
     <p *hideItSizes="{min:360,max:768}">This is hidden if responsive-window width between the min and max. &nbsp;&nbsp;&nbsp; *hideItSizes = (min:360, max:768) &nbsp;&nbsp;&nbsp; </p>
-
-    <p *hideItDevice="['mobile','tablet','desktop']">I'll hide if I'm a desktop / tablet or mobile device. &nbsp;&nbsp;&nbsp; *hideItDevice = [mobile, tablet, desktop]</p>
+    <br>
+    <p *hideItDevice="['mobile']">I'll hide if I'm a mobile device. &nbsp;&nbsp;&nbsp; *hideItDevice = [mobile]</p>
+    <p *hideItDevice="['tablet']">I'll hide if I'm a tablet device. &nbsp;&nbsp;&nbsp; *hideItDevice = [tablet]</p>
     <p *hideItDevice="['desktop']">I'll hide if I'm a desktop device. &nbsp;&nbsp;&nbsp; *hideItDevice = [desktop]</p>
+    <p *hideItDevice="['mobile','tablet']">I'll hide if I'm a tablet or mobile device. &nbsp;&nbsp;&nbsp; *hideItDevice = [mobile, tablet]</p>
+    <p *hideItDevice="['mobile','tablet','desktop']">I'll hide if I'm a desktop or tablet or mobile device. &nbsp;&nbsp;&nbsp; *hideItDevice = [mobile, tablet, desktop]</p>
 
 
     <!-- =========================================================================== -->
-    <h3>*[custom breakpoint]</h3>
+    <h3>*[custom breakpoints]</h3>
     <hr>
 
     <p *xl>I'll show if I'm a xl screen size. &nbsp;&nbsp;&nbsp; *xl</p>
@@ -81,21 +88,31 @@
     <p *md>I'll show if I'm a md screen size. &nbsp;&nbsp;&nbsp; *md</p>
     <p *sm>I'll show if I'm a sm screen size. &nbsp;&nbsp;&nbsp; *sm</p>
     <p *xs>I'll show if I'm a xs screen size. &nbsp;&nbsp;&nbsp; *xs</p>
-
+    <br>
     <ng-template [responsive]="{bootstrap: ['xl','lg','md','sm','xs']}">
         <p>Blahbity, Blabity, Blah.... &nbsp;&nbsp;&nbsp; </p>
-    <p *xl>I'll show if I'm a xl screen size. &nbsp;&nbsp;&nbsp; *xl</p>
-    <p *lg>I'll show if I'm a lg screen size. &nbsp;&nbsp;&nbsp; *lg</p>
-    <p *md>I'll show if I'm a md screen size. &nbsp;&nbsp;&nbsp; *md</p>
-    <p *sm>I'll show if I'm a sm screen size. &nbsp;&nbsp;&nbsp; *sm</p>
-    <p *xs>I'll show if I'm a xs screen size. &nbsp;&nbsp;&nbsp; *xs</p>
+        <p *xl>I'll show if I'm a xl screen size. &nbsp;&nbsp;&nbsp; *xl</p>
+        <p *lg>I'll show if I'm a lg screen size. &nbsp;&nbsp;&nbsp; *lg</p>
+        <p *md>I'll show if I'm a md screen size. &nbsp;&nbsp;&nbsp; *md</p>
+        <p *sm>I'll show if I'm a sm screen size. &nbsp;&nbsp;&nbsp; *sm</p>
+        <p *xs>I'll show if I'm a xs screen size. &nbsp;&nbsp;&nbsp; *xs</p>
     </ng-template>
-
+    <br>
     <div *xl>HELLO XL</div>
     <div *lg>HELLO LG</div>
     <div *md>HELLO MD</div>
     <div *sm>HELLO SM</div>
     <div *xs>HELLO XS</div>
-    <user-agent-info (info)="thisUserAgent($event)">(info) = thisUserAgent($event) = {{ userAgentData }}</user-agent-info>
+
+
+    <!-- =========================================================================== -->
+    <h3>thisUserAgent</h3>
+    <hr>
+
+    <user-agent-info (info)="thisUserAgent($event)">
+        (info) = thisUserAgent($event) = {{ userAgentData }}
+        <br>
+        userAgentData.browser = {{ userAgentData.browser }}
+    </user-agent-info>
 
 </div>
