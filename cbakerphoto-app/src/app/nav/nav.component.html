@@ -1,18 +1,25 @@
 <!-- <h1>COMPONENT: nav</h1> -->
+<!-- REF: https://github.com/ManuCutillas/ngx-responsive -->
+
 
 <mat-toolbar class="fixed-header" color="gray">
 
     <img class="navLogo" src="assets/images/0elements/cbaker_logo.svg" routerLink="/">
 
-    <div *ngFor="let navItem of navItems">
-        <!-- <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}">{{ navItem.menuItem }}</button> -->
-        <!-- <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navToggle()">{{ navItem.menuItem }}</button> -->
-        <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navClose()">{{ navItem.menuItem }}</button>
-    </div>
+    <!-- <ng-container *showItDevice="['desktop']"> -->
+    <ng-container *showItSizes="{min:1025}">
+        <div *ngFor="let navItem of navItems">
+            <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}">{{ navItem.menuItem }}</button>
+            <!-- <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navToggle()">{{ navItem.menuItem }}</button> -->
+            <!-- <button mat-button [title]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="navClose()">{{ navItem.menuItem }}</button> -->
+        </div>
+    </ng-container>
 
     <span class="fill-remaining-space"></span>
     <!-- <mat-icon class="navClick" (click)="navToggle()">menu</mat-icon> -->
-    <mat-icon (click)="navToggle()">menu</mat-icon>
+    <!-- <mat-icon (click)="navToggle()">menu</mat-icon> -->
+    <!-- <mat-icon (click)="navToggle()" *hideItDevice="['desktop']">menu</mat-icon> -->
+    <mat-icon (click)="navToggle()" *showItSizes="{max:1025}">menu</mat-icon>
 
 </mat-toolbar>
 
@@ -28,7 +35,4 @@
 -->
 
 <!-- <app-sidenav></app-sidenav> -->
-
-<!-- <ng-template [ngTemplateOutlet]="outlet" [ngOutletContext]="context"> -->
-    <app-sidenav></app-sidenav>
-<!-- </ng-template> -->
+<app-sidenav *showItSizes="{max:1025}"></app-sidenav>

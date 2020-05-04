@@ -18,7 +18,8 @@ import { MatListModule } from '@angular/material/list';
 
 import { NgxMasonryModule } from 'ngx-masonry';
 
-import { ResponsiveModule } from 'ngx-responsive'
+// import { ResponsiveModule } from 'ngx-responsive';
+import { ResponsiveModule, IResponsiveConfig } from 'ngx-responsive';
 
 import { NavComponent } from './nav/nav.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
@@ -39,6 +40,18 @@ import { GalleryComponent } from './gallery/gallery.component';
 // import { DataService } from './data.service';
 import { NavigationService } from './navigation.service';
 // import { ScrollToDirective } from './scroll-to.directive';
+
+
+const config: IResponsiveConfig = {
+    breakPoints: {
+        xs: { max: 600 },
+        sm: { min: 601, max: 959 },
+        md: { min: 960, max: 1279 },
+        lg: { min: 1280, max: 1919 },
+        xl: { min: 1920 }
+    },
+    debounceTime: 100
+};
 
 
 @NgModule({
@@ -77,7 +90,8 @@ import { NavigationService } from './navigation.service';
         MatProgressSpinnerModule,
         MatListModule,
         NgxMasonryModule,
-        ResponsiveModule.forRoot()
+        // ResponsiveModule.forRoot(),
+        ResponsiveModule.forRoot(config),
     ],
 
     providers: [
