@@ -32,10 +32,10 @@ export class PortraitsComponent implements OnInit {
     masonryImages: string[];
 
     limit = 6;
-    imageIncrment = this.limit / 1;
+    imageIncrement = this.limit / 1;
 
     // limit = Math.round(0.333 * window.screen.width / 500);
-    // imageIncrment = Math.round(this.limit / 1);
+    // imageIncrement = Math.round(this.limit / 1);
 
     public masonryOptions: NgxMasonryOptions = {
         gutter: 0,
@@ -48,7 +48,7 @@ export class PortraitsComponent implements OnInit {
         // console.log('Portraits.portraits[1].FileName = ' + Portraits.portraits[1].FileName);
         // console.log('this.portraitsItems = ' + this.portraitsItems);
 
-        // console.log('this.limit = ' + this.limit + '     this.imageIncrment = ' + this.imageIncrment);
+        // console.log('this.limit = ' + this.limit + '     this.imageIncrement = ' + this.imageIncrement);
 
         this.masonryImages = this.portraitsItems.slice(0, this.limit);
     }
@@ -73,7 +73,7 @@ export class PortraitsComponent implements OnInit {
     // ========================= MASONRY: NAV =========================
     showMoreImages() {
         // this.limit += 9;
-        this.limit += this.imageIncrment;
+        this.limit += this.imageIncrement;
         this.masonryImages = this.portraitsItems.slice(0, this.limit);
     }
 

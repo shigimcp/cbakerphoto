@@ -10,7 +10,9 @@ import { ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 
 import { NavigationService } from '../navigation.service';
-import * as navMenu from '../../assets/data/json/navMenu.json';
+
+import * as navMenu from '../../assets/data/json/navMenu_test.json';
+// import * as navMenu from '../../assets/data/json/navMenu.json';
 
 
 @Component({
@@ -36,10 +38,6 @@ export class SidenavComponent implements OnInit, AfterViewInit {
     }
 
     ngAfterViewInit(): void {
-        // console.log('-------------------------');
-        // console.log('SIDENAV: ngAfterViewInit() triggered!');
-        // console.log('  - this.sidenav = ' + this.sidenav);
-
         this.navigationService.setSidenav(this.sidenav);
     }
 }

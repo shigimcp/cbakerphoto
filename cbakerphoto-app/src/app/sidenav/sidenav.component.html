@@ -6,11 +6,9 @@
 
 <mat-sidenav-container [hasBackdrop]="false">
     <!-- <mat-icon (click)="sidenav.toggle()">menu</mat-icon> -->
-
     <mat-sidenav #sidenav mode="over" position="end" id="sidenave">
         <div *ngFor="let navItem of navItems" cdkFocusRegionStart>
             <button mat-button [attr.gallery]="navItem.gallery" routerLink="/{{ navItem.gallery }}" (click)="sidenav.toggle()">{{ navItem.menuItem }}</button>
         </div>
     </mat-sidenav>
-
 </mat-sidenav-container>

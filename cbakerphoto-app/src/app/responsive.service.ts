@@ -1,15 +1,17 @@
 // REF: https://itnext.io/angular-code-design-for-responsive-websites-acd4259a478c
 // REF: https://gist.github.com/snewell92/57aa0e064be3f3098a3cf147d1a5659d
+// REF: https://www.techiediaries.com/angular/style-angular-9-components-with-css-ngstyle-ngclass/
 
 
 import { Injectable } from '@angular/core';
-import { HostListener } from '@angular/core';
+// import { HostListener } from '@angular/core';
 
 import { OnDestroy } from '@angular/core';
+// import { OnInit, OnDestroy } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { IeInfoRx, ResponsiveSizeInfoRx, OrientationInfoRx, DeviceStandardInfoRx, DeviceInfoRx, UserAgentInfoRx, BrowserInfoRx } from 'ngx-responsive';
 
-import { NavigationService } from './navigation.service';
+// import { NavigationService } from './navigation.service';
 
 
 @Injectable({
@@ -19,9 +21,10 @@ import { NavigationService } from './navigation.service';
 
 // export class ResponsiveService {
 export class ResponsiveService implements OnDestroy {
+// export class ResponsiveService implements OnInit, OnDestroy {
 
     constructor(
-        private navigationService: NavigationService,
+        // private navigationService: NavigationService,
         public ieInfoRx: IeInfoRx,
         public browserInfoRx: BrowserInfoRx,
         public devicesInfoRx: DeviceInfoRx,
@@ -31,26 +34,83 @@ export class ResponsiveService implements OnDestroy {
         public userAgentInfoRx: UserAgentInfoRx
     ) { }
 
-    public userAgentData: UserAgentInfoRx;
     private subscriptions: Subscription[] = [];
 
+    public userAgentData: UserAgentInfoRx;
 
-    public screenWidth: any;
-    public screenHeight: any;
+    // public masonryLimit = 6;
+    // public masonryDivWidth = 50;
+    // public masonryDivWidth: number;
 
-    @HostListener('window:resize', ['$event'])
+    // public screenWidth = window.innerWidth;
+    // public screenHeight = window.innerHeight;
 
-    onResize(event: any) {
+    // getDivWidth() {
+    //     console.log('RESP SVC: getDivWidth() triggered!');
+
+    //     // return this.masonryDivWidth = 50;
+
+    //     switch (this.masonryDivWidth) {
+    //         case (1):
+    //             if (window.innerWidth <= 600) {
+    //                 console.log('RESP SVC: this.masonryDivWidth = 100');
+    //                 return this.masonryDivWidth = 100;
+    //             }
+    //             break;
+    //         case (2):
+    //             if (window.innerWidth >= 601 && window.innerWidth <= 960) {
+    //                 return this.masonryDivWidth = 50;
+    //             }
+    //             break;
+    //         case (3):
+    //             if (window.innerWidth >= 961 && window.innerWidth <= 1280) {
+    //                 return this.masonryDivWidth = 33.33;
+    //             }
+    //             break;
+    //         // default:
+    //         //     return this.masonryDivWidth = 33.33;
+    //     }
+    // }
+
+    // xs: { max: 600 },
+    // sm: { min: 601, max: 959 },
+    // md: { min: 960, max: 1279 },
+    // lg: { min: 1280, max: 1919 },
+    // xl: { min: 1920 }
+
+    // public screenWidth: any;
+    // public screenHeight: any;
+
+    // @HostListener('window:resize', ['$event'])
+
+    // onResize(event: any) {
+    //     console.log('-------------------------');
+    //     console.log('RESP SVC: onResize() triggered!');
+
+    //     this.screenWidth = window.innerWidth;
+    //     this.screenHeight = window.innerHeight;
+
+    //     console.log('this.screenWidth = ' + this.screenWidth);
+    //     console.log('this.screenHeight = ' + this.screenHeight);
+    // }
+
+
+    // public ngOnInit(): void {
+        // console.log('-------------------------');
+        // console.log('RESP SVC: ngOnInit() triggered!');
+    public fakeOnInit(): void {
         console.log('-------------------------');
-        console.log('RESP SVC: onResize() triggered!');
+        console.log('RESP SVC: fakeOnInit() triggered!');
 
-        this.screenWidth = window.innerWidth;
-        this.screenHeight = window.innerHeight;
-
-        // console.log('this.screenWidth = ' + this.screenWidth);
-        // console.log('this.screenHeight = ' + this.screenHeight);
+        this._subscribe();
+        this.ieInfoRx.connect();
+        this.browserInfoRx.connect();
+        this.devicesInfoRx.connect();
+        this.devicesStandardInfoRx.connect();
+        this.orientationInfoRx.connect();
+        this.responsiveSizeInfoRx.connect();
+        this.userAgentInfoRx.connect();
     }
-
 
 
     public ngOnDestroy(): void {
@@ -67,9 +127,6 @@ export class ResponsiveService implements OnDestroy {
         this.userAgentInfoRx.disconnect();
     }
 
-    // public thisUserAgent(userAgent) {
-    //     console.log('userAgent ==========>', userAgent);
-    // }
 
     // private _subscribe(): void {
     public _subscribe(): void {

@@ -48,7 +48,7 @@
         {
             "gallery": "gallery",
             "menuItem": "Gallery (TEST AREA)",
-            "location": "assets/data/women.json"
+            "location": "assets/data/classic.json"
         }
     ]
 }

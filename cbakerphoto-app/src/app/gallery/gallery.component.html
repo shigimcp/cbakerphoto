@@ -3,21 +3,69 @@
 <div masonry class="masonryGrid" id="masonryGridID">
 
     <!-- <h1>{{ title }}</h1> -->
+<!-- 
+    <p *showItSizes="{min:955,max:1057}">I'll show if responsive-window width is between the min and max. &nbsp;&nbsp;&nbsp; *showItSizes = (min:955,max:1057)</p>
+    <p *showItSizes="{min:750}">I'll show if responsive-window width is greater than or equal to min. &nbsp;&nbsp;&nbsp; *showItSizes = (min:750)</p>
 
+    <hr>
+    <h3>thisUserAgent</h3>
+    <user-agent-info (info)="thisUserAgent($event)">
+        (info) = thisUserAgent($event) = {{ userAgentData }}
+        <br>
+        userAgentData.browser = {{ userAgentData.browser }}
+    </user-agent-info>
+ -->
+
+
+<!-- 
     <ngx-masonry [options]="masonryOptions">
+        <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages" [style.width.%]="getDivWidth()">
         <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages">
             <img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" />
-            <!-- <a routerLink="/fitness"><img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" /></a> -->
+            <a routerLink="/fitness"><img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" /></a>
+        </div>
+    </ngx-masonry>
+ -->
+
+
+<!-- 
+    <ngx-masonry [options]="masonryOptions" [ngSwitch]="getWindowWidth()">
+        <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages" [style.width.%]="getDivWidth()" *ngSwitchCase="1024">
+            <img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" />
+        </div>
+    </ngx-masonry>
+ -->
+
+
+
+    <ngx-masonry [options]="masonryOptions" *showItSizes="{max:600}">
+        <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages" [style.width.%]="100">
+            <img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" />
         </div>
     </ngx-masonry>
 
+
+    <ngx-masonry [options]="masonryOptions" *showItSizes="{min:601,max:1279}">
+        <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages" [style.width.%]="50">
+            <img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" />
+        </div>
+    </ngx-masonry>
+
+
+    <ngx-masonry [options]="masonryOptions" *showItSizes="{min:1280}">
+        <div ngxMasonryItem class="masonryItem" *ngFor="let picture of masonryImages" [style.width.%]="33.333">
+            <img src="{{ picture.Directory }}{{ picture.FileName }}" width="100%" draggable="false" />
+        </div>
+    </ngx-masonry>
+
+
+
 <!-- 
     <div class="masonryNav">
-        <button *ngIf="limit < womenItems.length" (click)="showMoreImages()">Show More Images</button>
-        <button *ngIf="limit < womenItems.length" (click)="insertImage()">Insert Image</button>
+        <button *ngIf="limit < classicItems.length" (click)="showMoreImages()">Show More Images</button>
+        <button *ngIf="limit < classicItems.length" (click)="insertImage()">Insert Image</button>
         <button *ngIf="masonryImages" (click)="removeImage()">Remove Image</button>
-        <h2 *ngIf="limit >= womenItems.length">No More Images</h2>
+        <h2 *ngIf="limit >= classicItems.length">No More Images</h2>
     </div>
  -->
-
 </div>

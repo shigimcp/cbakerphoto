@@ -3,11 +3,13 @@
 
 import { Component, OnInit } from '@angular/core';
 // import { Input } from '@angular/core';
-
 import { ViewChild } from '@angular/core';
 import { HostListener } from '@angular/core';
+
 import { NgxMasonryComponent, NgxMasonryOptions } from 'ngx-masonry';
-import * as Women from '../../assets/data/json/women.json';
+import * as Classic from '../../assets/data/json/classic.json';
+
+import { ResponsiveService } from '../responsive.service';
 
 
 @Component({
@@ -19,44 +21,69 @@ import * as Women from '../../assets/data/json/women.json';
 
 export class GalleryComponent implements OnInit {
 
-    title = 'Gallery';
-    // thisGallery: 'women';
+    title = 'Gallery (Test Area)';
+    // thisGallery: 'classic';
 
-    // @Input() title;
-    // @Input() classic;
-    // @Input() navItem;
-    // @Input() thisGallery;
+    // userAgentData: any;
 
-    constructor() { }
+    constructor(private responsiveService: ResponsiveService) { }
 
 
     // ========================= MASONRY: defs =========================
-    womenItems: any[] = (Women as any).women;
+    classicItems: any[] = (Classic as any).classic;
 
     @ViewChild(NgxMasonryComponent) masonry: NgxMasonryComponent;
 
     masonryImages: string[];
 
     limit = 6;
-    imageIncrment = this.limit / 1;
+    imageIncrement = this.limit / 1;
 
-    // limit = Math.round(0.333 * window.screen.width / 500);
-    // imageIncrment = Math.round(this.limit / 1);
+    // limit = this.responsiveService.masonryLimit;
+    // imageIncrement = this.limit / 1;
 
     public masonryOptions: NgxMasonryOptions = {
+
+        // itemSelector: string;
+        // columnWidth: number | string;
+        // gutter: number;
+        // percentPosition: boolean;
+        // stamp: string;
+        // fitWidth: boolean;
+        // originLeft: boolean;
+        // originTop: boolean;
+        // containerStyle: string;
+        // resize: boolean;
+        // initLayout: boolean;
+        // horizontalOrder: boolean;
+        // animations: NgxMasonryAnimations;
+
         gutter: 0,
+        percentPosition: true
     };
+
+    // getDivWidth() {
+    //     console.log('GALLERY: getDivWidth() triggered!');
+    //     // return this.responsiveService.masonryDivWidth;
+    //     // return this.responsiveService.getDivWidth();
+    // }
+
+    // getWindowWidth() {
+    //     return window.innerWidth;
+    // }
     // ========================= END MASONRY: defs =========================
 
 
     ngOnInit(): void {
-        // console.log(Women);
-        // console.log('Women.classic[1].FileName = ' + Women.women[1].FileName);
-        // console.log('this.womenItems = ' + this.womenItems);
+        // console.log(Classic);
+        // console.log('Classic.classic[1].FileName = ' + Classic.classic[1].FileName);
+        // console.log('this.classicItems = ' + this.classicItems);
 
-        // console.log('this.limit = ' + this.limit + '     this.imageIncrment = ' + this.imageIncrment);
+        // console.log('this.limit = ' + this.limit + '     this.imageIncrement = ' + this.imageIncrement);
 
-        this.masonryImages = this.womenItems.slice(0, this.limit);
+        this.masonryImages = this.classicItems.slice(0, this.limit);
+
+        // this.getDivWidth();
     }
 
 
@@ -64,7 +91,6 @@ export class GalleryComponent implements OnInit {
     @HostListener('window:scroll', ['$event'])
 
     onScroll() {
-
         const galleryBtm = document.getElementById('masonryGridID').getBoundingClientRect().bottom;
         // console.log('galleryBtm = ' + galleryBtm);
 
@@ -79,12 +105,12 @@ export class GalleryComponent implements OnInit {
     // ========================= MASONRY: NAV =========================
     showMoreImages() {
         // this.limit += 9;
-        this.limit += this.imageIncrment;
-        this.masonryImages = this.womenItems.slice(0, this.limit);
+        this.limit += this.imageIncrement;
+        this.masonryImages = this.classicItems.slice(0, this.limit);
     }
 
     insertImage() {
-        this.masonryImages.splice(0, 0, this.womenItems[0]);
+        this.masonryImages.splice(0, 0, this.classicItems[0]);
         this.masonry.reloadItems();
         this.masonry.layout();
     }
@@ -93,4 +119,12 @@ export class GalleryComponent implements OnInit {
         this.masonryImages.pop();
     }
     // ========================= END MASONRY: NAV =========================
+
+
+
+    // // ========================= MASONRY: NAV =========================
+    // thisUserAgent(userAgent: any) {
+    //     console.log('userAgent ==========>', userAgent);
+    //     this.userAgentData = userAgent;
+    // }
 }
